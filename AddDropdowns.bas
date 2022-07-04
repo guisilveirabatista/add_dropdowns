@@ -1,11 +1,8 @@
-Attribute VB_Name = "Module1"
 Public Const ITEMS_LIMIT = 1000
 Public Const DROPDOWN_ROWS_LIMIT = 30
 Public Const DROPDOWN_DATA_WORKSHEET_NAME = "Dropdown_Data"
 
 Sub AddDropdowns()
-Attribute AddDropdowns.VB_Description = "Add dropdown to the current column based on the information on the column to the left."
-Attribute AddDropdowns.VB_ProcData.VB_Invoke_Func = "K\n14"
 
 Dim i As Long
 Dim j As Long
