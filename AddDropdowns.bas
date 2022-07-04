@@ -64,7 +64,10 @@ xlBetween, Formula1:=listToAppend
 End With
 
 cell.Interior.Color = RGB(214, 239, 237)
-cell.Value = "-select-"
+cell.Interior.Color = RGB(214, 239, 237)
+If Trim(cell.Value) = "" Then
+    cell.Value = "-select-"
+End If
 
 End Sub
 
