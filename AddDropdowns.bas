@@ -1,6 +1,7 @@
 Attribute VB_Name = "Module1"
 Public Const ITEMS_LIMIT = 1000
 Public Const DROPDOWN_ROWS_LIMIT = 30
+Public Const DROPDOWN_DATA_WORKSHEET_NAME = "Dropdown_Data"
 
 Sub AddDropdowns()
 Attribute AddDropdowns.VB_Description = "Add dropdown to the current column based on the information on the column to the left."
@@ -31,11 +32,11 @@ End Sub
 
 Function readList(title As String) As String
     Dim newList As String
-    For j = 1 To Worksheets("Dropdown_Data").Columns.Count
-        If Trim(Worksheets("Dropdown_Data").Cells(1, j).Value) <> "" Then
-            If Worksheets("Dropdown_Data").Cells(1, j).Value = title Then
-                For k = 2 To Worksheets("Dropdown_Data").Rows.Count
-                    newList = newList & Worksheets("Dropdown_Data").Cells(k, j).Value & ","
+    For j = 1 To Worksheets(DROPDOWN_DATA_WORKSHEET_NAME).Columns.Count
+        If Trim(Worksheets(DROPDOWN_DATA_WORKSHEET_NAME).Cells(1, j).Value) <> "" Then
+            If Worksheets(DROPDOWN_DATA_WORKSHEET_NAME).Cells(1, j).Value = title Then
+                For k = 2 To Worksheets(DROPDOWN_DATA_WORKSHEET_NAME).Rows.Count
+                    newList = newList & Worksheets(DROPDOWN_DATA_WORKSHEET_NAME).Cells(k, j).Value & ","
                 If k = DROPDOWN_ROWS_LIMIT Then Exit For
                 Next k
             End If
