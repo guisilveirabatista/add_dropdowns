@@ -35,7 +35,6 @@ Function readList(title As String) As String
     For j = 1 To Worksheets(DROPDOWN_DATA_WORKSHEET_NAME).Columns.Count
         If Trim(Worksheets(DROPDOWN_DATA_WORKSHEET_NAME).Cells(1, j).Value) <> "" Then
             If Worksheets(DROPDOWN_DATA_WORKSHEET_NAME).Cells(1, j).Value = title Then
-                    newList = "-select-"
                 For k = 2 To Worksheets(DROPDOWN_DATA_WORKSHEET_NAME).Rows.Count
                     newList = newList & Worksheets(DROPDOWN_DATA_WORKSHEET_NAME).Cells(k, j).Value & ","
                 If k = DROPDOWN_ROWS_LIMIT Then Exit For
