@@ -35,6 +35,7 @@ Function readList(title As String) As String
     For j = 1 To Worksheets(DROPDOWN_DATA_WORKSHEET_NAME).Columns.Count
         If Trim(Worksheets(DROPDOWN_DATA_WORKSHEET_NAME).Cells(1, j).Value) <> "" Then
             If Worksheets(DROPDOWN_DATA_WORKSHEET_NAME).Cells(1, j).Value = title Then
+                    newList = "-select-"
                 For k = 2 To Worksheets(DROPDOWN_DATA_WORKSHEET_NAME).Rows.Count
                     newList = newList & Worksheets(DROPDOWN_DATA_WORKSHEET_NAME).Cells(k, j).Value & ","
                 If k = DROPDOWN_ROWS_LIMIT Then Exit For
@@ -64,7 +65,6 @@ xlBetween, Formula1:=listToAppend
 .ShowError = True
 End With
 
-cell.Interior.Color = RGB(214, 239, 237)
 cell.Interior.Color = RGB(214, 239, 237)
 If Trim(cell.Value) = "" Then
     cell.Value = "-select-"
