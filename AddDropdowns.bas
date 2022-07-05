@@ -20,7 +20,7 @@ For i = 1 To Rows.Count
     If Trim(title) <> "" Then
         list = readList(title)
         If Trim(list) <> "" Then
-            Call ApplyFilters(i, columnToApply, list)
+            Call AddDropdown(Cells(i, columnToApply), list)
         End If
     End If
 If i = ROWS_LIMIT Then Exit For
@@ -43,11 +43,7 @@ Function readList(title As String) As String
     readList = newList
 End Function
 
-Sub ApplyFilters(rowNumber, columnToApply, listToAppend)
-    Call addDropdown(Cells(rowNumber, columnToApply), listToAppend)
-End Sub
-
-Sub addDropdown(cell, listToAppend)
+Sub AddDropdown(cell, listToAppend)
 With cell.Validation
 .Delete
 .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
@@ -65,4 +61,3 @@ End With
 cell.Interior.Color = RGB(214, 239, 237)
 
 End Sub
-
