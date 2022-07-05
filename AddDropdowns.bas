@@ -1,5 +1,5 @@
-Public Const ITEMS_LIMIT = 1000
-Public Const DROPDOWN_ROWS_LIMIT = 30
+Public Const ROWS_LIMIT = 1000
+Public Const DROPDOWN_LIST_LIMIT = 30
 Public Const DROPDOWN_DATA_WORKSHEET_NAME = "Dropdown_Data"
 
 Sub AddDropdowns()
@@ -34,7 +34,7 @@ Function readList(title As String) As String
             If Worksheets(DROPDOWN_DATA_WORKSHEET_NAME).Cells(1, j).Value = title Then
                 For k = 2 To Worksheets(DROPDOWN_DATA_WORKSHEET_NAME).Rows.Count
                     newList = newList & Worksheets(DROPDOWN_DATA_WORKSHEET_NAME).Cells(k, j).Value & ","
-                If k = DROPDOWN_ROWS_LIMIT Then Exit For
+                If k = DROPDOWN_LIST_LIMIT Then Exit For
                 Next k
             End If
         End If
