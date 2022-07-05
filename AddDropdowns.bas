@@ -23,7 +23,7 @@ For i = 1 To Rows.Count
             Call ApplyFilters(i, columnToApply, list)
         End If
     End If
-If i = ITEMS_LIMIT Then Exit For
+If i = ROWS_LIMIT Then Exit For
 Next i
 End Sub
 
@@ -38,7 +38,7 @@ Function readList(title As String) As String
                 Next k
             End If
         End If
-    If j = ITEMS_LIMIT Then Exit For
+    If j = ROWS_LIMIT Then Exit For
     Next j
     readList = newList
 End Function
