@@ -18,7 +18,7 @@ For i = 1 To Rows.Count
     Dim title As String
     title = Cells(i, columnToRead).Value
     If Trim(title) <> "" Then
-        list = readList(title)
+        list = ReadDropdownDataList(title)
         If Trim(list) <> "" Then
             Call AddDropdown(Cells(i, columnToApply), list)
         End If
@@ -27,7 +27,7 @@ If i = ROWS_LIMIT Then Exit For
 Next i
 End Sub
 
-Function readList(title As String) As String
+Function ReadDropdownDataList(title As String) As String
     Dim newList As String
     For j = 1 To Worksheets(DROPDOWN_DATA_WORKSHEET_NAME).Columns.Count
         If Trim(Worksheets(DROPDOWN_DATA_WORKSHEET_NAME).Cells(1, j).Value) <> "" Then
@@ -40,7 +40,7 @@ Function readList(title As String) As String
         End If
     If j = ROWS_LIMIT Then Exit For
     Next j
-    readList = newList
+    ReadDropdownDataList = newList
 End Function
 
 Sub AddDropdown(cell, listToAppend)
