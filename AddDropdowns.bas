@@ -39,6 +39,7 @@ Function readList(title As String) As String
             End If
         End If
     Next j
+    If j = ITEMS_LIMIT Then Exit For
     readList = newList
 End Function
 
