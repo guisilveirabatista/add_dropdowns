@@ -31,19 +31,19 @@ Next i
 End Sub
 
 Function ReadDropdownDataList(title As String) As String
-    Dim newList As String
+    Dim dataList As String
     For j = 1 To Worksheets(DROPDOWN_DATA_WORKSHEET_NAME).Columns.Count
         If Trim(Worksheets(DROPDOWN_DATA_WORKSHEET_NAME).Cells(1, j).Value) <> "" Then
             If Worksheets(DROPDOWN_DATA_WORKSHEET_NAME).Cells(1, j).Value = title Then
                 For k = 2 To Worksheets(DROPDOWN_DATA_WORKSHEET_NAME).Rows.Count
-                    newList = newList & Worksheets(DROPDOWN_DATA_WORKSHEET_NAME).Cells(k, j).Value & ","
+                    dataList = dataList & Worksheets(DROPDOWN_DATA_WORKSHEET_NAME).Cells(k, j).Value & ","
                 If k = DROPDOWN_LIST_LIMIT Then Exit For
                 Next k
             End If
         End If
     If j = ROWS_LIMIT Then Exit For
     Next j
-    ReadDropdownDataList = newList
+    ReadDropdownDataList = dataList
 End Function
 
 Function AddDropdown(cell, listToAppend)
