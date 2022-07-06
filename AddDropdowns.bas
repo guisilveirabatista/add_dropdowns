@@ -14,12 +14,15 @@ Dim columnToApply As Integer
 columnToApply = ActiveCell.Column
 columnToRead = columnToApply - 1
 
+'Iterate over the rows in the selected sheet and get the titles to be matched with the titles in Dropdown_Data'
 For i = 1 To Rows.Count
     Dim title As String
     title = Cells(i, columnToRead).Value
     If Trim(title) <> "" Then
+        'Read data list from the sheet Dropdown_Data for the given title'
         list = ReadDropdownDataList(title)
         If Trim(list) <> "" Then
+            'If there is a match of titles, apply the dropdown in the cell in the selected column'
             Call AddDropdown(Cells(i, columnToApply), list)
         End If
     End If
