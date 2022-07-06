@@ -46,7 +46,7 @@ Function ReadDropdownDataList(title As String) As String
     ReadDropdownDataList = newList
 End Function
 
-Sub AddDropdown(cell, listToAppend)
+Function AddDropdown(cell, listToAppend)
 With cell.Validation
 .Delete
 .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
@@ -63,4 +63,4 @@ End With
 
 cell.Interior.Color = RGB(214, 239, 237)
 
-End Sub
+End Function
